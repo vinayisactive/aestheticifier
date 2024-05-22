@@ -7,7 +7,7 @@ import {
   Check,
   ChevronRight,
 } from "lucide-react";
-import phoneImg from "@/public/asserts/phone-template.png";
+import phoneImg from "@/public/assets/phone-template.png";
 import Image from "next/image";
 import Link from "next/link";
 
