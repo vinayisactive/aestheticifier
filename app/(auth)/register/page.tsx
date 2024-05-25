@@ -3,7 +3,6 @@ import axios from "axios";
 import React, { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-// import ReturnToHome from "@/app/component/ReturnToHome/ReturnToHome";
 
 interface FormData {
   email: string;
@@ -28,7 +27,7 @@ const SignUp = () => {
     name :""
   });
 
-  const [disabled, setDisabled] = useState(true); 
+  const [disabled, setDisabled] = useState<boolean>(true); 
   useEffect(() => {
     const isFilled = Object.values(formData).every(value => value !== ""); 
     const isPasswordValid = formData.password.trim().split('').length > 5;
@@ -37,8 +36,8 @@ const SignUp = () => {
   },[formData])
 
 
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(""); 
+  const [loading, setLoading] = useState<boolean>(false);
+  const [error, setError] = useState<string>(""); 
   
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -61,6 +60,7 @@ const SignUp = () => {
       
     } catch (error: any) {
       setError(error.response.data.error);
+      setLoading(false); 
     }
   }
 
@@ -71,7 +71,6 @@ const SignUp = () => {
 
   return (
     <div className="w-screen h-screen absolute top-0 flex flex-col justify-center items-center gap-6 bg-white text-black">
-            {/* <ReturnToHome route={"Signup"}/> */}
 
       <form className="w-[350px] sm:w-[400px] h-[400px] flex flex-col justify-center" onSubmit={handleSubmit}>
       <div>

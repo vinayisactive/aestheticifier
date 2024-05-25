@@ -3,7 +3,7 @@ import axios from "axios";
 import React, { use, useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-// import ReturnToHome from "@/app/component/ReturnToHome/ReturnToHome";
+
 
 interface FormData {
   email: string;
@@ -14,11 +14,11 @@ const Login = () => {
 
   const router = useRouter();
   const InputRef = useRef<HTMLInputElement>(null);
-  const isAuthenticated = true; 
+  const isAuthenticated : boolean = true; 
 
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(""); 
-  const [disabled, setDisabled] = useState(true); 
+  const [loading, setLoading] = useState<boolean>(false);
+  const [error, setError] = useState<string>(""); 
+  const [disabled, setDisabled] = useState<boolean>(true); 
   const [formData, setFormData] = useState<FormData>({
     email: "",
     password: ""
@@ -52,7 +52,7 @@ const Login = () => {
       setLoading(true); 
       const { data } = await axios.post("/api/auth/login", formData ); 
 
-      const serializedUserInfoObject = JSON.stringify(data?.user);
+      const serializedUserInfoObject : string = JSON.stringify(data?.user);
       localStorage.setItem('userInfo', serializedUserInfoObject);
       localStorage.setItem("isAuthenticated", isAuthenticated.toString()); 
 
@@ -68,6 +68,7 @@ const Login = () => {
 
     } catch (error: any) {
       setError(error.response.data.error);
+      setLoading(false); 
     }
   }
 
@@ -78,7 +79,7 @@ const Login = () => {
 
   return (
     <div className="w-screen h-screen absolute top-0 flex flex-col justify-center items-center bg-white text-black">
-      {/* <ReturnToHome route={"Login"}/> */}
+      
 
       <form className="w-[350px] sm:w-[400px] h-[400px] flex flex-col justify-center" onSubmit={handleSubmit}>
 
