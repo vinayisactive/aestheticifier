@@ -54,8 +54,6 @@ const Login = () => {
 
       const serializedUserInfoObject : string = JSON.stringify(data?.user);
       localStorage.setItem('userInfo', serializedUserInfoObject);
-      localStorage.setItem("isAuthenticated", isAuthenticated.toString()); 
-
       setLoading(false); 
 
       if (data?.success) {

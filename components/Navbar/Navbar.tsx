@@ -5,20 +5,35 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import axios from "axios";
 
+
 const Navbar = () => {
     const router = useRouter();
 
-    const [isAuthenticated, setIsAuthenticated] = useState();
+    const [isAuthenticated, setIsAuthenticated] = useState<boolean>();
     const [userInfo, setUserInfo] = useState(); 
   
     useEffect(() => {
-      let isAuth : any= localStorage.getItem('isAuthenticated');
-      isAuth = isAuth === "true"; 
       let userInfo : any = localStorage.getItem("userInfo"); 
-      if(userInfo)
+      if(userInfo){
           setUserInfo(JSON.parse(userInfo));
-      
-      setIsAuthenticated(isAuth);
+       }
+
+       const isAuthenticated = async() => {
+
+        try {
+          const {data} = await axios.get("/api/auth/checkAuth"); 
+
+          if(data?.authentication){
+            setIsAuthenticated(true)
+          }else{
+            setIsAuthenticated(false)
+          }
+        } catch (error) {
+          setIsAuthenticated(false); 
+        }
+       }
+
+       isAuthenticated(); 
     },[]); 
 
 
@@ -27,8 +42,8 @@ const Navbar = () => {
   
         const {data} = await axios.post("/api/auth/logout");
         localStorage.setItem("userInfo", "");
-        localStorage.setItem("isAuthenticated", "");
-  
+
+        
         if (data?.success) {
           router.push("/")
       
