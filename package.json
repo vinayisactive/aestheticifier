@@ -9,7 +9,6 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@kinde-oss/kinde-auth-nextjs": "^2.2.10",
     "axios": "^1.7.2",
     "bcrypt": "^5.1.1",
     "jsonwebtoken": "^9.0.2",
@@ -21,6 +20,7 @@
   },
   "devDependencies": {
     "@types/bcrypt": "^5.0.2",
+    "@types/js-cookie": "^3.0.6",
     "@types/jsonwebtoken": "^9.0.6",
     "@types/node": "^20",
     "@types/react": "^18",
