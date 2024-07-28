@@ -46,46 +46,6 @@ export default function Home() {
                   <Image width={200} src={phoneImg} alt="hello" />
                 </div>
               </div>
-  
-              <div className="flex flex-col gap-8">
-  
-                <ul className="flex flex-col gap-3 text-gray-700 text-sm">
-                  <li className="flex gap-1 items-center">
-                    <BadgePercent /> High quality premium stickers.
-                    <Check color="#3ffd9b" />
-                  </li>
-  
-                  <li className="flex gap-1 items-center">
-                    <PaintbrushVertical /> Dedicated canvas for designing.
-                    <Check color="#3ffd9b" />
-                  </li>
-  
-                  <li className="flex gap-1 items-center">
-                    <Smartphone /> Latest iPhones cover available.
-                    <Check color="#3ffd9b" />
-                  </li>
-                </ul>
-  
-                <div className="flex flex-col gap-1 justify-center items-center">
-                  <div className="flex">
-                    {Array(5).fill(0).map((_, index) => (
-                      <Star
-                        key={index}
-                        color="#32a044"
-                        className="fill-[#32a044] size-5 shrink-0"
-                      />
-                    ))}
-                  </div>
-  
-                  <p className="text-md font-bold">
-                    1k+
-                    <span className="text-slate-500 text-sm font-normal ml-1" >
-                      Happy customers
-                    </span>
-                  </p>
-                </div>
-  
-              </div>
             </div>
           </div>
         </MaxWitdhWrapper>
