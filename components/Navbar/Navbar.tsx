@@ -85,30 +85,35 @@ const Navbar = () => {
               </Link>
             )} */}
 
-            {isAuthenticated ? (
+            {isAuthenticated && (
               <button
                 className="px-3 py-1 bg-black text-white rounded-lg hover:bg-black/75 active:ring-1 active:ring-gray-700"
                 onClick={handleLogout}
               >
                 Logout
               </button>
-            ) : (
-              <div className="flex justify-center items-center gap-2">
-                <Link
-                  className="px-2 py-1 bg-black text-white rounded-lg hover:bg-black/75 active:ring-1 active:ring-gray-700"
-                  href={"/login"}
-                >
-                  Login
-                </Link>
-
-                <Link
-                  className="px-2 py-1 bg-black text-white rounded-lg hover:bg-black/75 active:ring-1 active:ring-gray-700"
-                  href={"/register"}
-                >
-                  Signup
-                </Link>
-              </div>
             )}
+            
+            { isAuthenticated === false &&
+              (
+                <div className="flex justify-center items-center gap-2">
+                  <Link
+                    className="px-2 py-1 bg-black text-white rounded-lg hover:bg-black/75 active:ring-1 active:ring-gray-700"
+                    href={"/login"}
+                  >
+                    Login
+                  </Link>
+  
+                  <Link
+                    className="px-2 py-1 bg-black text-white rounded-lg hover:bg-black/75 active:ring-1 active:ring-gray-700"
+                    href={"/register"}
+                  >
+                    Signup
+                  </Link>
+                </div>
+              )
+            }
+             
           </div>
         </div>
       </MaxWitdhWrapper>

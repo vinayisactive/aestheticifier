@@ -1,10 +1,5 @@
 import MaxWitdhWrapper from "@/components/Wrapper/MaxWitdhWrapper";
 import {
-  PaintbrushVertical,
-  Star,
-  BadgePercent,
-  Smartphone,
-  Check,
   ChevronRight,
 } from "lucide-react";
 import phoneImg from "@/public/assets/phone-template.png";
@@ -24,7 +19,7 @@ export default function Home() {
               </h1>
               <p className="md:px-40">
                 <span className="mr-1 p-1 rounded-xl text-2xl font-bold">
-                  aestheticify ✨
+                  aestheticify 🎨
                 </span>
                 your phone case with premium stickers of your choice, And get
                 delivered them at your door steps.
